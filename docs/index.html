@@ -2,14 +2,12 @@
 <html>
 
 <head>
-    <title>hoge</title>
+    <title>marked-js-custom</title>
 </head>
 
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.5/vue.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
     <style type="text/css">
     html,
     body,
@@ -42,6 +40,10 @@
         font-family: 'Monaco', courier, monospace;
         padding: 20px;
     }
+    
+    code {
+        color: #f66;
+    }
     </style>
     <div id="editor">
         <textarea v-model="input" debounce="300"></textarea>
@@ -60,9 +62,6 @@
         };
 
         marked.setOptions({
-            highlight: function(code, lang) {
-                return hljs.highlightAuto(code, [lang]).value;
-            },
             renderer: renderer
         });
 
